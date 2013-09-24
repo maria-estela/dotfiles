@@ -57,3 +57,6 @@
 ;; 10 september 2010 one-space indentation for html tags, which have
 ;; often many indentation levels
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
+
+;; from now on it's versioned, not adding timestamps
+(add-hook 'javascript-mode-hook '(lambda() (toggle-truncate-lines 1)))
