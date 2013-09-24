@@ -59,4 +59,4 @@
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
 
 ;; from now on it's versioned, not adding timestamps
-(add-hook 'javascript-mode-hook '(lambda() (toggle-truncate-lines 1)))
+(add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
