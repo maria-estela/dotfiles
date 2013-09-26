@@ -60,3 +60,6 @@
 
 ;; from now on it's versioned, not adding timestamps
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+
+;; less mode from github repo
+(load-file "~/repos/less-css-mode/less-css-mode.el")
