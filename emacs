@@ -58,5 +58,15 @@
 ;; often many indentation levels
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
 
+
 ;; from now on it's versioned, not adding timestamps
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+
+;; coffee mode
+(load-file "~/repos/coffee-mode/coffee-mode.el")
+
+;; https://github.com/defunkt/coffee-mode/issues/142
+;; CoffeeScript uses two spaces.
+(make-local-variable 'tab-width)
+(set 'tab-width 2)
+(set 'coffee-tab-width 2)
