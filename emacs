@@ -63,3 +63,8 @@
 
 ;; less mode from github repo
 (load-file "~/repos/less-css-mode/less-css-mode.el")
+;; better javascript mode
+(load-file "~/repos/js2-mode/js2-mode.el")
+;; it is too slow, i will use it just to indent var
+;;(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+(add-hook 'js2-mode-hook '(lambda() (toggle-truncate-lines 1)))
