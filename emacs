@@ -47,10 +47,10 @@
 ;; 11 dicember 2009
 (set 'dired-copy-preserve-time "true")
 
-;; 2 june 2010 writing in javascript, I want a two-space indentation
-;; and lines always truncated
-(add-hook 'c-mode-common-hook '(lambda() (toggle-truncate-lines 1)))
-(add-hook 'c-mode-common-hook '(lambda() (set 'c-basic-offset 4)))
+;; lines always truncated
+(add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+;; with angular and Yeoman two spaces is good, but Yorick and Pawel want 4
+(add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 4)))
 
 (put 'narrow-to-region 'disabled nil)
 
@@ -60,6 +60,3 @@
 
 ;; from now on it's versioned, not adding timestamps
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
-
-;; less mode from github repo
-(load-file "~/repos/less-css-mode/less-css-mode.el")
