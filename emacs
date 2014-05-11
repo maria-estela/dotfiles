@@ -1,19 +1,20 @@
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(dired-listing-switches "-Btrop")
+ '(haskell-mode-hook (quote (turn-on-haskell-indent turn-on-haskell-indentation)))
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(standard-indent 2))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (eval-after-load "dired"
@@ -37,20 +38,16 @@
 ;; 9 september 2009 no tabs please
 (setq-default indent-tabs-mode nil)
 
-;; 25 september 2009 when looking to the code for a while
+;; 25 september 2009 when looking at the code for a while
 (setq-default blink-cursor-mode nil)
-
-;; 14 november 2009 to help with javascript protovis
-;;(autoload 'js2-mode "js2" nil t)
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; 11 dicember 2009
 (set 'dired-copy-preserve-time "true")
 
 ;; lines always truncated
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
-;; with angular and Yeoman two spaces is good, but Yorick and Pawel want 4
-(add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 4)))
+;; with angular and Yeoman two spaces is good
+(add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 2)))
 
 (put 'narrow-to-region 'disabled nil)
 
