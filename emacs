@@ -17,34 +17,33 @@
  ;; If there is more than one, they won't work right.
  )
 
-(eval-after-load "dired"
-  '(define-key dired-mode-map "\C-xm" 'dired-w3m-find-file))
+;; global
 
-;; after installing lang/php-mode.el
-(autoload 'php-mode "php-mode" "Mode for editing PHP source files")
-(add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
-
-;; try without colors
 (global-font-lock-mode 0)
-
-;; no tabs please
 (setq-default indent-tabs-mode nil)
-
-;; when looking at the code for a while
 (setq-default blink-cursor-mode nil)
+
+;; dired
 
 (set 'dired-copy-preserve-time "true")
 
-;; lines always truncated
+;; php
+
+(autoload 'php-mode "php-mode" "Mode for editing PHP source files")
+(add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
+
+;; javascript
+
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
 ;; with angular and Yeoman two spaces is good
 (add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 2)))
 
-(put 'narrow-to-region 'disabled nil)
+;; markup
 
 ;; one-space indentation for html tags, which have often many
 ;; indentation levels
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
 
+;; less
 
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
