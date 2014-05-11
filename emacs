@@ -57,3 +57,5 @@
 
 ;; from now on it's versioned, not adding timestamps
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+
+(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
