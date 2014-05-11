@@ -28,20 +28,19 @@
                           (file-name-nondirectory file)))
         (w3m-find-file file))))
 
-;; 18 may 2009 after installing lang/php-mode.el
+;; after installing lang/php-mode.el
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;; 6 june 2009 try without colors
+;; try without colors
 (global-font-lock-mode 0)
 
-;; 9 september 2009 no tabs please
+;; no tabs please
 (setq-default indent-tabs-mode nil)
 
-;; 25 september 2009 when looking at the code for a while
+;; when looking at the code for a while
 (setq-default blink-cursor-mode nil)
 
-;; 11 dicember 2009
 (set 'dired-copy-preserve-time "true")
 
 ;; lines always truncated
@@ -51,11 +50,9 @@
 
 (put 'narrow-to-region 'disabled nil)
 
-;; 10 september 2010 one-space indentation for html tags, which have
-;; often many indentation levels
+;; one-space indentation for html tags, which have often many
+;; indentation levels
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
 
-;; from now on it's versioned, not adding timestamps
-(add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
 
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
