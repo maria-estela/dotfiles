@@ -20,14 +20,6 @@
 (eval-after-load "dired"
   '(define-key dired-mode-map "\C-xm" 'dired-w3m-find-file))
 
-(defun dired-w3m-find-file ()
-  (interactive)
-  (require 'w3m)
-  (let ((file (dired-get-filename)))
-    (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
-                          (file-name-nondirectory file)))
-        (w3m-find-file file))))
-
 ;; after installing lang/php-mode.el
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
