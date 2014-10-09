@@ -7,6 +7,7 @@
  '(dired-listing-switches "-Btrop")
  '(haskell-mode-hook (quote (turn-on-haskell-indent turn-on-haskell-indentation)))
  '(inhibit-startup-screen t)
+ '(js2-basic-offset 2)
  '(make-backup-files nil)
  '(standard-indent 2))
 
@@ -32,11 +33,14 @@
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;; javascript
+;; unused javascript mode
 
 (add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
 ;; with angular and Yeoman two spaces is good
 (add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 2)))
+
+;; new javascript mode
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; markup
 
@@ -47,3 +51,23 @@
 ;; less
 
 (add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
+
+;; python
+
+;; see http://stackoverflow.com/a/4339241/393758
+(defadvice python-calculate-indentation (around outdent-closing-brackets)
+  "Handle lines beginning with a closing bracket and indent them so that
+they line up with the line containing the corresponding opening bracket."
+  (save-excursion
+    (beginning-of-line)
+    (let ((syntax (syntax-ppss)))
+      (if (and (not (eq 'string (syntax-ppss-context syntax)))
+               (python-continuation-line-p)
+               (cadr syntax)
+               (skip-syntax-forward "-")
+               (looking-at "\\s)"))
+          (progn
+            (forward-char 1)
+            (ignore-errors (backward-sexp))
+            (setq ad-return-value (current-indentation)))
+        ad-do-it))))
