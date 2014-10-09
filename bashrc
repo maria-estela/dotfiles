@@ -4,7 +4,6 @@ alias e="emacs"
 export HISTSIZE=100000
 export HISTCONTROL=ignoredups
 export VISUAL="emacs" # The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
-oldest () { pyper.py 'p, os.stat(p).st_ctime | p[0], datetime.datetime.fromtimestamp(p[1]) | min(pp, key=lambda x:x[1]) | [str(i) for i in p]'; }
 nodebins () { PATH=$PATH:node_modules/.bin/; }
 PATH=${PATH}:~/.cabal/bin
 pyc() {
