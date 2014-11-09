@@ -17,3 +17,7 @@ abs() {
     echo $ABS_PATH
 } # from http://jeetworks.org/node/98
 alias node="env NODE_NO_READLINE=1 rlwrap node"
+# requested by `brew doctor`
+export PATH="/usr/local/sbin:$PATH"
+# this is where cabal-install says it puts the executables
+export PATH="$HOME/.cabal/bin:$PATH"
