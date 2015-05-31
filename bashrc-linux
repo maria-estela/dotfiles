@@ -1,0 +1,20 @@
+## Aliases
+alias grep-git="grep --exclude-dir .git"
+alias lt="ls -lrt"
+alias node="env NODE_NO_READLINE=1 rlwrap node"
+
+## Variables
+export HISTSIZE=100000
+# The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
+export VISUAL=emacs
+
+## Functions
+nodebins () { PATH=$PATH:node_modules/.bin/; }
+# `abs` copied from http://jeetworks.org/node/98
+abs() {
+    local PARENT_DIR=$(dirname "$1")
+    cd "$PARENT_DIR"
+    local ABS_PATH="$(pwd)"/"$(basename $1)"
+    cd - >/dev/null
+    echo $ABS_PATH
+}
