@@ -1,10 +1,11 @@
 alias greps="grep --exclude-dir '.svn'"
-alias lt="ls -lrt"
+alias lt="ls -lrtF"
+alias e="emacs"
 export HISTSIZE=100000
-export PYTHONSTARTUP=/home/pc013/.pystartup
-export VISUAL=vim # The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
-oldest () { pyper.py 'p, os.stat(p).st_ctime | p[0], datetime.datetime.fromtimestamp(p[1]) | min(pp, key=lambda x:x[1]) | [str(i) for i in p]'; }
+export HISTCONTROL=ignoredups
+export VISUAL="emacs" # The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
 nodebins () { PATH=$PATH:node_modules/.bin/; }
+PATH=${PATH}:~/.cabal/bin
 pyc() {
     find $@ -name '*.pyc' -o -name __pycache__ -o -name .coverage -o -name '*.egg-info' | xargs rm -rf -v
 } # This may be dangerous with virtual environments
@@ -16,3 +17,26 @@ abs() {
     echo $ABS_PATH
 } # from http://jeetworks.org/node/98
 alias node="env NODE_NO_READLINE=1 rlwrap node"
+# requested by `brew doctor`
+export PATH="/usr/local/sbin:$PATH"
+# this is where cabal-install says it puts the executables
+export PATH="$HOME/.cabal/bin:$PATH"
+
+# in order to build Cordova apps
+export ANDROID_HOME=/Users/francesco/Desktop/android-sdk-macosx
+export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/bin
+export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/tools
+export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/platform-tools
+
+# git-aware-prompt
+export GITAWAREPROMPT=~/repos/git-aware-prompt
+source $GITAWAREPROMPT/main.sh
+export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# docker
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/francesco/.boot2docker/certs/boot2docker-vm
+
+# Postgres.app
+PATH=${PATH}:/Applications/Postgres.app/Contents/Versions/9.4/bin

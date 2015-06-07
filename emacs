@@ -1,72 +1,82 @@
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(dired-listing-switches "-Btrop")
+ '(haskell-mode-hook (quote (turn-on-haskell-indent turn-on-haskell-indentation)))
  '(inhibit-startup-screen t)
+ '(js2-basic-offset 2)
  '(make-backup-files nil)
  '(standard-indent 2))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
-(eval-after-load "dired"
-  '(define-key dired-mode-map "\C-xm" 'dired-w3m-find-file))
+;; global
 
-(defun dired-w3m-find-file ()
-  (interactive)
-  (require 'w3m)
-  (let ((file (dired-get-filename)))
-    (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
-                          (file-name-nondirectory file)))
-        (w3m-find-file file))))
+(global-font-lock-mode 0)
+(setq-default indent-tabs-mode nil)
+(setq-default blink-cursor-mode nil)
 
-;; 18 may 2009 after installing lang/php-mode.el
+;; for Elpa
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+;; dired
+
+(set 'dired-copy-preserve-time "true")
+
+;; php
+
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;; 6 june 2009 try without colors
-(global-font-lock-mode 0)
+;; unused javascript mode
 
-;; 9 september 2009 no tabs please
-(setq-default indent-tabs-mode nil)
+(add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+;; with angular and Yeoman two spaces is good
+(add-hook 'js-mode-hook '(lambda() (set 'js-indent-level 2)))
 
-;; 25 september 2009 when looking to the code for a while
-(setq-default blink-cursor-mode nil)
+;; new javascript mode
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; 14 november 2009 to help with javascript protovis
-;;(autoload 'js2-mode "js2" nil t)
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; markup
 
-;; 11 dicember 2009
-(set 'dired-copy-preserve-time "true")
-
-;; 2 june 2010 writing in javascript, I want a two-space indentation
-;; and lines always truncated
-(add-hook 'c-mode-common-hook '(lambda() (toggle-truncate-lines 1)))
-(add-hook 'c-mode-common-hook '(lambda() (set 'c-basic-offset 4)))
-
-(put 'narrow-to-region 'disabled nil)
-
-;; 10 september 2010 one-space indentation for html tags, which have
-;; often many indentation levels
+;; one-space indentation for html tags, which have often many
+;; indentation levels
 (add-hook 'html-mode-hook '(lambda() (set 'c-basic-offset 1)))
 
+;; less
 
-;; from now on it's versioned, not adding timestamps
-(add-hook 'js-mode-hook '(lambda() (toggle-truncate-lines 1)))
+(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
 
-;; coffee mode
-(load-file "~/repos/coffee-mode/coffee-mode.el")
+;; python
 
-;; https://github.com/defunkt/coffee-mode/issues/142
-;; CoffeeScript uses two spaces.
-(make-local-variable 'tab-width)
-(set 'tab-width 2)
-(set 'coffee-tab-width 2)
+;; see http://stackoverflow.com/a/4339241/393758
+(defadvice python-calculate-indentation (around outdent-closing-brackets)
+  "Handle lines beginning with a closing bracket and indent them so that
+they line up with the line containing the corresponding opening bracket."
+  (save-excursion
+    (beginning-of-line)
+    (let ((syntax (syntax-ppss)))
+      (if (and (not (eq 'string (syntax-ppss-context syntax)))
+               (python-continuation-line-p)
+               (cadr syntax)
+               (skip-syntax-forward "-")
+               (looking-at "\\s)"))
+          (progn
+            (forward-char 1)
+            (ignore-errors (backward-sexp))
+            (setq ad-return-value (current-indentation)))
+        ad-do-it))))
+
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
