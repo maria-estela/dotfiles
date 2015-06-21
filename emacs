@@ -77,3 +77,6 @@ they line up with the line containing the corresponding opening bracket."
             (ignore-errors (backward-sexp))
             (setq ad-return-value (current-indentation)))
         ad-do-it))))
+
+;; haskell
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
