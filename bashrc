@@ -22,21 +22,7 @@ export PATH="/usr/local/sbin:$PATH"
 # this is where cabal-install says it puts the executables
 export PATH="$HOME/.cabal/bin:$PATH"
 
-# in order to build Cordova apps
-export ANDROID_HOME=/Users/francesco/Desktop/android-sdk-macosx
-export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/bin
-export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/tools
-export PATH=${PATH}:/Users/francesco/Desktop/android-sdk-macosx/platform-tools
-
 # git-aware-prompt
 export GITAWAREPROMPT=~/repos/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
-# docker
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/francesco/.boot2docker/certs/boot2docker-vm
-
-# Postgres.app
-PATH=${PATH}:/Applications/Postgres.app/Contents/Versions/9.4/bin
