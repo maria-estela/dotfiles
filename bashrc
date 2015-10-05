@@ -19,7 +19,7 @@ abs() {
     cd - >/dev/null
     echo $ABS_PATH
 } # from http://jeetworks.org/node/98
-alias node="env NODE_NO_READLINE=1 rlwrap node"
+
 # requested by `brew doctor`
 export PATH="/usr/local/sbin:$PATH"
 # this is where cabal-install says it puts the executables
@@ -29,3 +29,11 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export GITAWAREPROMPT=~/repos/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# docker
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/francesco/.boot2docker/certs/boot2docker-vm
+
+# Postgres.app
+PATH=${PATH}:/Applications/Postgres.app/Contents/Versions/9.4/bin
