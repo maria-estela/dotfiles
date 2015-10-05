@@ -1,4 +1,0 @@
-source ~/repos/dotfiles/bashrc
-
-## Aliases
-alias grep-git="grep --exclude-dir .git"
