@@ -1,5 +1,8 @@
 alias greps="grep --exclude-dir '.svn'"
 alias lt="ls -lrtF"
+alias mv="mv -vi"
+alias cp="cp -vi"
+alias rm="rm -v"
 alias e="emacs"
 export HISTSIZE=100000
 export HISTCONTROL=ignoredups
