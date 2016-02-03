@@ -5,7 +5,9 @@ alias cp="cp -vi"
 alias rm="rm -v"
 alias e="emacs"
 export HISTSIZE=100000
-export HISTCONTROL=ignoredups
+# make sure to ignore duplicates and lines beginning with a
+# space. Often already the case in Linux, not on Mac
+export HISTCONTROL="$HISTCONTROL:ignoredups:ignorespace"
 export VISUAL="emacs" # The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
 nodebins () { PATH=$PATH:node_modules/.bin/; }
 PATH=${PATH}:~/.cabal/bin
