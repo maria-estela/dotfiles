@@ -5,7 +5,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dired-listing-switches "-Btrop")
- '(haskell-mode-hook (quote (turn-on-haskell-indent turn-on-haskell-indentation)))
+ '(haskell-mode-hook
+   (quote
+    (turn-on-haskell-indent turn-on-haskell-indentation)) t)
  '(inhibit-startup-screen t)
  '(js2-basic-offset 2)
  '(make-backup-files nil)
