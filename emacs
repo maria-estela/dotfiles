@@ -82,3 +82,6 @@ they line up with the line containing the corresponding opening bracket."
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
+;; bind C-c t to `helm-projectile`
+(global-set-key [3 116] (quote helm-projectile))
