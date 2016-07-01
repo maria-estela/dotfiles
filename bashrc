@@ -3,7 +3,7 @@ alias lt="ls -lrtF"
 alias mv="mv -vi"
 alias cp="cp -vi"
 alias rm="rm -v"
-alias e="emacs"
+alias e="emacs . &"
 export HISTSIZE=100000
 # make sure to ignore duplicates and lines beginning with a
 # space. Often already the case in Linux, not on Mac
