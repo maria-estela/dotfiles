@@ -86,5 +86,9 @@ they line up with the line containing the corresponding opening bracket."
 ;; bind C-c t to `helm-projectile`
 (global-set-key [3 116] (quote helm-projectile))
 
+;; this is terrible code
+(defun set-margins-my (begin end) (interactive (set-window-margins nil 60 60)))
+(defun set-margins-none (begin end) (interactive (set-window-margins nil 0 0)))
+
 ;; always disable the change log mode
 (rassq-delete-all 'change-log-mode auto-mode-alist)
