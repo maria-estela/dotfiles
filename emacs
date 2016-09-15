@@ -87,8 +87,15 @@ they line up with the line containing the corresponding opening bracket."
 (global-set-key [3 116] (quote helm-projectile))
 
 ;; this is terrible code
-(defun set-margins-my (begin end) (interactive (set-window-margins nil 60 60)))
-(defun set-margins-none (begin end) (interactive (set-window-margins nil 0 0)))
+(defun set-margins-my () (interactive 
+       ;; http://superuser.com/a/645114/255836
+       (setq-default left-margin-width 60 right-margin-width 60) ; Define new widths.
+       (set-window-buffer nil (current-buffer)) ; Use them now.
+))
+(defun set-margins-none () (interactive 
+       (setq-default left-margin-width 0 right-margin-width 0) ; Define new widths.
+       (set-window-buffer nil (current-buffer)) ; Use them now.
+))
 
 ;; always disable the change log mode
 (rassq-delete-all 'change-log-mode auto-mode-alist)
