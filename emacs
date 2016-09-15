@@ -91,6 +91,9 @@ they line up with the line containing the corresponding opening bracket."
        ;; http://superuser.com/a/645114/255836
        (setq-default left-margin-width 60 right-margin-width 60) ; Define new widths.
        (set-window-buffer nil (current-buffer)) ; Use them now.
+       ;; the following would work by itself, but would be ignored
+       ;; here because of exceptions on the lines above
+       ;(set-frame-parameter nil 'internal-border-width 40)
 ))
 (defun set-margins-none () (interactive 
        (setq-default left-margin-width 0 right-margin-width 0) ; Define new widths.
