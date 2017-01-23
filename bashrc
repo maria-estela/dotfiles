@@ -1,5 +1,5 @@
 alias greps="grep --exclude-dir '.svn'"
-alias lt="ls -lrtF"
+alias lt="ls -rtF1"
 alias mv="mv -vi"
 alias cp="cp -vi"
 alias rm="rm -v"
