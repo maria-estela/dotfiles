@@ -102,3 +102,6 @@ they line up with the line containing the corresponding opening bracket."
 
 ;; always disable the change log mode
 (rassq-delete-all 'change-log-mode auto-mode-alist)
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
