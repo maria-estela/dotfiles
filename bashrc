@@ -32,4 +32,4 @@ export GITAWAREPROMPT=~/repos/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
-function hakyllPostTitle { echo $(date -Idate)-post-${1:-1}.md }
+function hakyllPostTitle { echo $(date -Idate)-post-${1:-1}.md; }
