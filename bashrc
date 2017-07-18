@@ -26,17 +26,21 @@ export HISTSIZE=100000
 # space. Often already the case in Linux, not on Mac
 export HISTCONTROL="$HISTCONTROL:ignoredups:ignorespace"
 export VISUAL="emacs" # The editor invoked by C-xC-e (see man bash, edit-and-execute-command)
+
+# changes to $PATH
 # requested by `brew doctor`
 export PATH="/usr/local/sbin:$PATH"
 # this is where cabal-install says it puts the executables
 export PATH="$HOME/.cabal/bin:$PATH"
-
 PATH=${PATH}:~/.cabal/bin
 PATH=${PATH}:~/commands
+PATH=${PATH}:~/node_modules/.bin
+# Stack leaves executables here
+PATH=/home/francesco/.local/bin:${PATH}
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # git-aware-prompt
 export GITAWAREPROMPT=~/repos/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-
-
