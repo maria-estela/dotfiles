@@ -9,6 +9,7 @@ alias e="emacs . &"
 # functions
 nodebins () { PATH=$PATH:node_modules/.bin/; }
 hakyllPostTitle () { echo $(date -Idate)-post-${1:-1}.md; }
+gitSave () { git commit -am "$(date)"; }
 pyc() {
     find $@ -name '*.pyc' -o -name __pycache__ -o -name .coverage -o -name '*.egg-info' | xargs rm -rf -v
 } # This may be dangerous with virtual environments
