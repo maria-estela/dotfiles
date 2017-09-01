@@ -105,3 +105,10 @@ they line up with the line containing the corresponding opening bracket."
 
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; set temporary file directory in order to avoid cluttering the file
+;; system with temporary files https://www.emacswiki.org/emacs/AutoSave#toc1
+(setq backup-directory-alist
+`((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+`((".*" ,temporary-file-directory t)))
