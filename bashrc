@@ -33,6 +33,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 PATH=${PATH}:~/.cabal/bin
 PATH=${PATH}:~/commands
+PATH=${PATH}:~/prototypes
 PATH=${PATH}:~/node_modules/.bin
 # Stack leaves executables here
 PATH=/home/francesco/.local/bin:${PATH}
