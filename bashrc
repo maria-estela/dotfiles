@@ -5,6 +5,7 @@ alias mv="mv -vi"
 alias cp="cp -vi"
 alias rm="rm -v"
 alias e="emacs . &"
+alias copy="xclip -selection clipboard"
 
 # functions
 nodebins () { PATH=$PATH:node_modules/.bin/; }
@@ -44,3 +45,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GITAWAREPROMPT=~/repos/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# stack auto completion
+eval "$(stack --bash-completion-script stack)"
