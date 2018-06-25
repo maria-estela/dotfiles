@@ -119,3 +119,6 @@ they line up with the line containing the corresponding opening bracket."
 
 ;; automatically revert files
 (global-auto-revert-mode 1)
+
+;; https://www.emacswiki.org/emacs/LoadPath
+(add-to-list 'load-path "~/prototypes/")
