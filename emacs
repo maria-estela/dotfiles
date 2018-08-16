@@ -28,6 +28,7 @@
 (global-font-lock-mode 0)
 (setq-default indent-tabs-mode nil)
 (setq-default blink-cursor-mode nil)
+(setq-default truncate-lines t)
 
 ;; for Elpa
 
