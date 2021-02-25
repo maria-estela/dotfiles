@@ -1,9 +1,6 @@
 # aliases
 alias greps="grep --exclude-dir '.svn'"
 alias lt="ls -rtF1"
-alias mv="mv -vi"
-alias cp="cp -vi"
-alias rm="rm -v"
 alias e="emacs . &"
 alias copy="xclip -selection clipboard"
 
@@ -28,16 +25,20 @@ export PATH="$HOME/.cabal/bin:$PATH"
 PATH=${PATH}:~/.cabal/bin
 PATH=${PATH}:~/commands
 PATH=${PATH}:~/prototypes
-PATH=${PATH}:~/node_modules/.bin
+PATH=~/node_modules/.bin:${PATH}
 # Stack leaves executables here
 PATH=/home/francesco/.local/bin:${PATH}
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # git-aware-prompt
-export GITAWAREPROMPT=~/repos/git-aware-prompt
-source $GITAWAREPROMPT/main.sh
-export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+#export GITAWAREPROMPT=~/repos/git-aware-prompt
+#source $GITAWAREPROMPT/main.sh
+#export PS1=" \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] "
 
 # stack auto completion
 eval "$(stack --bash-completion-script stack)"
+
+# another visual experiment
+export PS1=" ♥  "
+pwd

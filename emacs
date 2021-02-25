@@ -1,4 +1,11 @@
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -12,9 +19,13 @@
    (quote
     (turn-on-haskell-indent turn-on-haskell-indentation)) t)
  '(inhibit-startup-screen t)
- '(js2-basic-offset 2)
+ '(js-indent-level 4)
+ '(js2-basic-offset 4)
  '(make-backup-files nil)
- '(standard-indent 2))
+ '(package-selected-packages
+   (quote
+    (rust-mode unfill js2-mode helm-projectile haskell-mode flycheck expand-region evil company anything)))
+ '(standard-indent 4))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -123,3 +134,5 @@ they line up with the line containing the corresponding opening bracket."
 
 ;; https://www.emacswiki.org/emacs/LoadPath
 (add-to-list 'load-path "~/prototypes/")
+(put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
