@@ -136,3 +136,6 @@ they line up with the line containing the corresponding opening bracket."
 (add-to-list 'load-path "~/prototypes/")
 (put 'narrow-to-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+
+(defun copy-file-path () (interactive) (kill-new buffer-file-name))
+(global-set-key (kbd "C-x m") 'copy-file-path)
