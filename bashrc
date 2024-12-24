@@ -1,6 +1,6 @@
 # aliases
 alias greps="grep --exclude-dir '.svn'"
-alias l="ls -rtF1"
+alias l="ls -rtF1 --color=never"
 alias e="emacs . &"
 alias copy="xclip -selection clipboard"
 
